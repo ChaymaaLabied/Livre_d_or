@@ -1,7 +1,6 @@
 <?php
-require __DIR__ . '/../config/database.php';
-require __DIR__ . '/../models/utilisateurs.php';
-
+require '../config/database.php';
+require '../models/utilisateurs.php';
 $message = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,6 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require __DIR__ . '/../views/header.php';
-require __DIR__ . '/../views/inscription.php';
-require __DIR__ . '/../views/footer.php';
+require '../views/header.php';
+require '../views/inscription.php';
+require '../views/footer.php';

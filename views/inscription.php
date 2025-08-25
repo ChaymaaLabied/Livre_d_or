@@ -5,7 +5,7 @@
         <p style="color:red;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>
 
-    <form method="post">
+    <form method="post" action="../controllers/inscription.php">
         <label>Login :</label>
         <input type="text" name="login" required>
 
