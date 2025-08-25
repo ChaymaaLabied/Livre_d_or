@@ -1,5 +1,6 @@
 <main class="container">
     <h2>Inscription</h2>
+
     <?php if (!empty($message)): ?>
         <p style="color:red;"><?= htmlspecialchars($message) ?></p>
     <?php endif; ?>

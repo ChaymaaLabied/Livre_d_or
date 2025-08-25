@@ -1,5 +1,6 @@
 <?php
-require 'models/utilisateur.php';
+require __DIR__ . '/../config/database.php';
+require __DIR__ . '/../models/utilisateurs.php';
 
 $message = null;
 
@@ -9,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: index.php?page=connexion");
         exit;
     } else {
-        $message = $result; // Message d'erreur
+        $message = $result;
     }
 }
 
-require 'views/header.php';
-require 'views/inscription.php';
-require 'views/footer.php';
+require __DIR__ . '/../views/header.php';
+require __DIR__ . '/../views/inscription.php';
+require __DIR__ . '/../views/footer.php';
