@@ -1,25 +1,36 @@
 <?php
 session_start();
-require 'models/utilisateur.php';
+require __DIR__ . '/../config/database.php'; // connexion MySQLi → $mysqli
 
-$message = null;
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $login = trim($_POST['login']);
+    $password = $_POST['password'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $result = connecterUtilisateur($mysqli, $_POST);
+    if (!empty($login) && !empty($password)) {
+        // Vérifie si l'utilisateur existe
+        $stmt = $mysqli->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $stmt->bind_param("s", $login);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
 
-    if (is_array($result)) {
-        // Connexion réussie → stocker les infos en session
-        $_SESSION['id'] = $result['id'];
-        $_SESSION['login'] = $result['login'];
+        if ($user && password_verify($password, $user['password'])) {
+            // Connexion réussie → on stocke l’utilisateur en session
+            $_SESSION['user'] = [
+                'id' => $user['id'],
+                'login' => $user['login']
+            ];
+            header("Location: ../index.php");
+            exit;
+        } else {
+            $message = "Login ou mot de passe incorrect.";
+        }
 
-        header("Location: index.php"); // redirection vers accueil
-        exit;
+        $stmt->close();
     } else {
-        // Erreur → stocker message
-        $message = $result;
+        $message = "Veuillez remplir tous les champs.";
     }
 }
 
-require 'views/header.php';
-require 'views/connexion.php';
-require 'views/footer.php';
+// Si erreur → afficher le formulaire avec le message
+require __DIR__ . '/../views/connexion.php';
