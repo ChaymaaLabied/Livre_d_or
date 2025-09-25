@@ -5,10 +5,6 @@ function inscrireUtilisateur($mysqli, $data)
     $password = htmlspecialchars(trim($data['password']));
     $conf_password = htmlspecialchars(trim($data['conf_password']));
 
-    echo "on est la";
-    if ($password !== $conf_password) {
-        return "Les mots de passe ne correspondent pas.";
-    }
 
     $login = mysqli_real_escape_string($mysqli, $login);
 

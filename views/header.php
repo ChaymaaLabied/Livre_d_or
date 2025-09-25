@@ -13,8 +13,8 @@
         <h1>Mon Livre d'or</h1>
         <nav>
             <a href="index.php">Accueil</a>
-            <a href="index.php?page=inscription">Inscription</a>
-            <a href="index.php?page=connexion">Connexion</a>
-            <a href="index.php?page=livreor">Livre d'or</a>
+            <a href="./views/inscription.php">Inscription</a>
+            <a href="./views/connexion.php">Connexion</a>
+            <a href="./views/livredor.php">Livre d'or</a>
         </nav>
     </header>

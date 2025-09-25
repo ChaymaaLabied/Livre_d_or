@@ -6,7 +6,7 @@ $message = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = inscrireUtilisateur($mysqli, $_POST);
     if ($result === true) {
-        header("Location: index.php?page=connexion");
+        header("Location: connexion.php");
         exit;
     } else {
         $message = $result;
