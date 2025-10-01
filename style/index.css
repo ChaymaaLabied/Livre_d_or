@@ -1,0 +1,187 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(160deg, #f0f5ff, #d9e4ff);
+  color: #222;
+  line-height: 1.5;
+  font-family: "Kalam", cursive;
+}
+
+/*Header */
+header {
+  background: #6a0dad;
+  color: #fff;
+  padding: 25px 0;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+header nav a {
+  color: #fff;
+  margin: 0 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+header nav a:hover {
+  color: #ffd700;
+}
+/* MAIN */
+main {
+  min-height: calc(100vh - 120px); /* 100vh moins header + footer approx */
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+main h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+main p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Liens */
+main a {
+  color: #6a1b9a;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+main a:hover {
+  background: #6a1b9a;
+  color: #fff;
+}
+
+/* Formulaires */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form label,
+main h2 {
+  text-align: start;
+}
+
+form input,
+form textarea,
+form button {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+form input,
+form textarea {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background: #ff6f61;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: #ff3b2f;
+  transform: translateY(-2px);
+}
+
+/* Livre d’or (commentaires) */
+.commentaire {
+  background: linear-gradient(120deg, #ffd3e0, #ffe4f0);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px 5px 20px 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05),
+    -5px -5px 15px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.commentaire:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1),
+    -5px -5px 25px rgba(255, 255, 255, 0.5);
+}
+
+.commentaire p:first-child {
+  font-weight: bold;
+  color: #6a0dad;
+  font-size: 0.9rem;
+}
+
+.commentaire p:last-child {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: #333;
+}
+/* FOOTER */
+footer {
+  background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+}
+
+footer a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+  opacity: 0.7;
+}
+
+/*  Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header nav a {
+    display: block;
+    margin: 8px 0;
+  }
+}

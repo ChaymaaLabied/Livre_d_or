@@ -1,21 +1,17 @@
-<?php require __DIR__ . '/header.php'; ?>
-
-<main class="container">
+<main>
     <h2>Connexion</h2>
 
     <?php if (!empty($message)): ?>
-        <p style="color:red;"><?= htmlspecialchars($message) ?></p>
+        <p style="color:red;"><?= $message ?></p>
     <?php endif; ?>
 
-    <form method="post" action="../controllers/connexion.php">
+    <form action="<?= BASE_URL ?>controllers/connexion_controller.php" method="POST">
         <label for="login">Login :</label>
-        <input type="text" id="login" name="login" required>
+        <input type="text" name="login" id="login" required>
 
         <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" name="password" id="password" required>
 
         <button type="submit">Se connecter</button>
     </form>
 </main>
-
-<?php require __DIR__ . '/footer.php'; ?>
