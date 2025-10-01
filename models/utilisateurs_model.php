@@ -44,3 +44,12 @@ function getUtilisateurByLogin($mysqli, $login)
     $stmt->close();
     return $user;
 }
+// Vérifie la connexion d'un utilisateur
+function verifierConnexion($mysqli, $login, $password)
+{
+    $user = getUtilisateurByLogin($mysqli, $login); // récupère l'utilisateur
+    if ($user && password_verify($password, $user['password'])) {
+        return $user; // connexion OK
+    }
+    return false; // sinon
+}
